@@ -1,7 +1,6 @@
 "use client";
 import { useState, FormEvent, ChangeEvent } from "react";
 
-
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -13,8 +12,41 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+
+    // Create FormData object and append the form data
+    const formDataObj = new FormData();
+    formDataObj.append("name", formData.name);
+    formDataObj.append("email", formData.email);
+    formDataObj.append("message", formData.message);
+    formDataObj.append("access_key", "c68c7db3-7a67-49f1-996f-69140065103f"); // Replace with your Web3Forms access key
+
+    // Convert FormData to JSON
+    const object = Object.fromEntries(formDataObj);
+    const json = JSON.stringify(object);
+
+    try {
+      // Send the form data to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        setSubmitted(true); // Show thank you message
+        setFormData({ name: "", email: "", message: "" }); // Clear the form
+      } else {
+        console.error("Form submission failed:", result);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
@@ -25,7 +57,7 @@ export default function Contact() {
 
       {/* Desktop View */}
       <div className="contact-container hidden md:block bg-gray-800 border-2 border-teal-500 p-6 rounded-lg animate-fadeInRight">
-        <form onSubmit={handleSubmit} className="contact-form space-y-6 ">
+        <form onSubmit={handleSubmit} className="contact-form space-y-6">
           <div className="form-group">
             <label htmlFor="name" className="block text-lg font-semibold text-white">
               Name:
@@ -34,6 +66,7 @@ export default function Contact() {
               type="text"
               id="name"
               name="name"
+              placeholder="Name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -52,6 +85,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder="Email"
               className="w-full p-3 border border-gray-300 rounded-md focus:border-teal-500"
             />
           </div>
@@ -66,7 +100,8 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:border-teal-500"
+              placeholder="Type your message here..."
+              className="w-full p-3 border  text-black border-gray-300 rounded-md focus:border-teal-500"
             ></textarea>
           </div>
 
@@ -85,7 +120,7 @@ export default function Contact() {
       <div className="contact-container md:hidden bg-gray-800 border-2 border-teal-500 p-6 rounded-lg">
         <form onSubmit={handleSubmit} className="contact-form space-y-6">
           <div className="form-group">
-            <label htmlFor="name" className="block text-lg font-semibold text-white">
+            <label htmlFor="name" className="block   text-lg font-semibold">
               Name:
             </label>
             <input
@@ -95,7 +130,8 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:border-teal-500"
+              placeholder="Name"
+              className="w-full p-3 border text-black border-gray-300 rounded-md focus:border-teal-500"
             />
           </div>
 
@@ -107,28 +143,30 @@ export default function Contact() {
               type="email"
               id="email"
               name="email"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-md focus:border-teal-500"
+              className="w-full p-3 border text-black border-gray-300 rounded-md focus:border-teal-500"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="message" className="block text-lg font-semibold text-white">
-              Message:
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:border-teal-500"
-            ></textarea>
-          </div>
+  <label htmlFor="message" className="block text-lg font-semibold text-white">
+    Message:
+  </label>
+  <textarea
+    id="message"
+    name="message"
+    value={formData.message}
+    onChange={handleChange}
+    required
+    className="w-full p-3 border border-gray-300 rounded-md  focus:border-teal-500 bg-white text-black placeholder-gray-500"
+    placeholder="Type your message here..."
+  ></textarea>
+</div>
 
-          <button type="submit" className="w-full py-3 bg-teal-500 text-white rounded-md hover:bg-teal-400 transition-all duration-300">
+          <button type="submit" className="w-full py-3 bg-teal-500 text-blackrounded-md hover:bg-teal-400 transition-all duration-300">
             Submit
           </button>
         </form>
