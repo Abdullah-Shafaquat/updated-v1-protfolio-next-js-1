@@ -118,12 +118,42 @@ export default function Project() {
             Click here
           </Link>
         </div>
-{/*         project 11 */}
+{/*         project 13 */}
 
         <div className="projectCard bg-white rounded-xl shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <h2 className="projectTitle text-2xl text-teal-600 mb-4">Blog wesite</h2>
           <Image src="/project13.png" alt="Next.js Portfolio" className="projectImage rounded-lg border-4 border-teal-700 mx-auto" width={400} height={300} />
           <Link href="https://blogwebsitemilestone3.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white bg-teal-700 py-2 px-4 mt-4 inline-block rounded-lg font-semibold transition-all duration-300 hover:bg-teal-600 hover:translate-y-1">
+            Click here
+          </Link>
+        </div>
+
+
+        {/*         project 14 */}
+
+        <div className="projectCard bg-white rounded-xl shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <h2 className="projectTitle text-2xl text-teal-600 mb-4">E-COMMERCE wesite</h2>
+          <Image src="/project14.png" alt="Next.js Portfolio" className="projectImage rounded-lg border-4 border-teal-700 mx-auto" width={400} height={300} />
+          <Link href="https://ecomer-wesite-3.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white bg-teal-700 py-2 px-4 mt-4 inline-block rounded-lg font-semibold transition-all duration-300 hover:bg-teal-600 hover:translate-y-1">
+            Click here
+          </Link>
+        </div>
+{/*         project 5 */}
+
+                <div className="projectCard bg-white rounded-xl shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <h2 className="projectTitle text-2xl text-teal-600 mb-4">Solar Tech Solutions E-COMMERCE wesite</h2>
+          <Image src="/project15.png" alt="Next.js Portfolio" className="projectImage rounded-lg border-4 border-teal-700 mx-auto" width={400} height={300} />
+          <Link href="https://solar-tech-solutionsnext-js-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white bg-teal-700 py-2 px-4 mt-4 inline-block rounded-lg font-semibold transition-all duration-300 hover:bg-teal-600 hover:translate-y-1">
+            Click here
+          </Link>
+        </div>
+
+{/*       project 16  */}
+
+        <div className="projectCard bg-white rounded-xl shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <h2 className="projectTitle text-2xl text-teal-600 mb-4">CAR RENTAL E-COMMERCE wesite</h2>
+          <Image src="/project16.png" alt="Next.js Portfolio" className="projectImage rounded-lg border-4 border-teal-700 mx-auto" width={400} height={300} />
+          <Link href="https://hacaton-3-nhjy.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white bg-teal-700 py-2 px-4 mt-4 inline-block rounded-lg font-semibold transition-all duration-300 hover:bg-teal-600 hover:translate-y-1">
             Click here
           </Link>
         </div>
