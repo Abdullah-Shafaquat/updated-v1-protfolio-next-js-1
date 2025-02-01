@@ -118,6 +118,15 @@ export default function Project() {
             Click here
           </Link>
         </div>
+{/*         project 11 */}
+
+        <div className="projectCard bg-white rounded-xl shadow-lg p-6 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+          <h2 className="projectTitle text-2xl text-teal-600 mb-4">Blog wesite</h2>
+          <Image src="/project13.png" alt="Next.js Portfolio" className="projectImage rounded-lg border-4 border-teal-700 mx-auto" width={400} height={300} />
+          <Link href="https://blogwebsitemilestone3.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-white bg-teal-700 py-2 px-4 mt-4 inline-block rounded-lg font-semibold transition-all duration-300 hover:bg-teal-600 hover:translate-y-1">
+            Click here
+          </Link>
+        </div>
       </div>
     </div>
   );
